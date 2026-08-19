@@ -313,11 +313,11 @@ export default function AboutUsPage() {
               <div className="absolute inset-0 bg-linear-to-br from-[#16a34a]/10 via-transparent to-[#085433]/10 dark:from-[#16a34a]/20 dark:to-transparent" />
 
               <Image
-                src="/phoneapp.png"
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85"
                 alt="RestoreHealth digital healthcare application"
                 fill
                 sizes="(max-width: 1024px) 90vw, 520px"
-                className="relative z-10 object-contain p-6 sm:p-10"
+                className="relative z-10 object-cover object-center"
               />
 
               <div className="absolute bottom-5 left-5 z-20 rounded-2xl border border-white/70 bg-white/85 px-5 py-3 shadow-xl backdrop-blur-md dark:border-slate-700/50 dark:bg-slate-900/90">
@@ -391,7 +391,7 @@ export default function AboutUsPage() {
           <div ref={missionImage.ref} className={missionImage.className}>
             <div className="relative mx-auto aspect-4/3 max-w-xl overflow-hidden rounded-4xl bg-[#16a34a]/10 dark:bg-[#085433]/20">
               <Image
-                src="/doctor.webp"
+                src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1400&q=85"
                 alt="Healthcare professional"
                 fill
                 sizes="(max-width: 1024px) 90vw, 560px"
