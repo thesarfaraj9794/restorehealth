@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { Menu, X, Moon, Sun } from "lucide-react";
 
 import { useTheme } from "../app/providers/ThemeProvider";
@@ -45,7 +46,6 @@ const navItems = [
     label: "Contact Us",
     href: "/services/contact-us",
   },
-  
 ];
 
 // =====================================================
@@ -71,7 +71,7 @@ export default function Navbar() {
   }, []);
 
   // =====================================================
-  // ACTIVE PAGE
+  // ACTIVE PAGE CHECK
   // =====================================================
 
   const isActivePage = (href: string) => {
@@ -83,7 +83,7 @@ export default function Navbar() {
   };
 
   // =====================================================
-  // PREVENT BODY SCROLL
+  // PREVENT BODY SCROLL WHEN MOBILE MENU OPEN
   // =====================================================
 
   useEffect(() => {
@@ -95,7 +95,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   // =====================================================
-  // CLOSE DRAWER ON DESKTOP
+  // CLOSE MOBILE DRAWER ON DESKTOP
   // =====================================================
 
   useEffect(() => {
@@ -106,6 +106,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("resize", handleResize);
+
     handleResize();
 
     return () => {
@@ -144,7 +145,7 @@ export default function Navbar() {
         "
       >
         {/* =================================================
-            MAIN NAVBAR CONTAINER
+            MAIN NAVBAR
         ================================================= */}
 
         <div
@@ -156,12 +157,16 @@ export default function Navbar() {
             max-w-[1920px]
             items-center
             px-4
+
             sm:h-[114px]
             sm:px-6
+
             lg:h-[120px]
             lg:px-5
+
             xl:h-[124px]
             xl:px-8
+
             2xl:h-[132px]
             2xl:px-12
           "
@@ -180,6 +185,7 @@ export default function Navbar() {
               justify-center
               pb-3
               pt-2
+
               lg:w-[155px]
               xl:w-[190px]
               2xl:w-[240px]
@@ -195,6 +201,7 @@ export default function Navbar() {
                 h-[56px]
                 w-auto
                 object-contain
+
                 sm:h-[62px]
                 lg:h-[58px]
                 xl:h-[66px]
@@ -207,15 +214,17 @@ export default function Navbar() {
                 mt-2
                 whitespace-nowrap
                 text-center
+                text-[10px]
                 font-bold
                 leading-tight
                 tracking-wide
                 text-[#1B4D03]
-                text-[10px]
+
                 sm:text-[11px]
                 lg:text-[9px]
                 xl:text-[11px]
                 2xl:text-sm
+
                 dark:text-[#D4A300]
               "
             >
@@ -234,13 +243,14 @@ export default function Navbar() {
               min-w-0
               flex-1
               items-center
+
               lg:flex
               xl:ml-8
               2xl:ml-10
             "
           >
             {/* =============================================
-                NAV LINKS
+                DESKTOP NAV LINKS
             ============================================= */}
 
             <div
@@ -259,6 +269,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href}
+                    aria-label={item.label}
                     className={`
                       group
                       relative
@@ -339,7 +350,7 @@ export default function Navbar() {
             </div>
 
             {/* =============================================
-                THEME AREA
+                DESKTOP THEME AREA
             ============================================= */}
 
             <div
@@ -348,6 +359,7 @@ export default function Navbar() {
                 flex
                 shrink-0
                 items-center
+
                 xl:ml-5
               "
             >
@@ -359,6 +371,7 @@ export default function Navbar() {
                   h-8
                   w-px
                   bg-[#E3E7EB]
+
                   dark:bg-[#374151]
                 "
               />
@@ -370,9 +383,7 @@ export default function Navbar() {
                   type="button"
                   onClick={toggleTheme}
                   aria-label={
-                    darkMode
-                      ? "Switch to light mode"
-                      : "Switch to dark mode"
+                    darkMode ? "Switch to light mode" : "Switch to dark mode"
                   }
                   className="
                     relative
@@ -386,9 +397,12 @@ export default function Navbar() {
                     border-[#D8E6CC]
                     bg-[#F4F9F0]
                     p-1
+
                     transition-all
                     duration-300
+
                     xl:w-16
+
                     dark:border-[#36574F]
                     dark:bg-[#182C28]
                   "
@@ -404,10 +418,13 @@ export default function Navbar() {
                       bg-white
                       text-[#1B4D03]
                       shadow-md
+
                       transition-transform
                       duration-300
+
                       dark:bg-[#253C37]
                       dark:text-[#D4A300]
+
                       ${
                         darkMode
                           ? "translate-x-[26px] xl:translate-x-8"
@@ -438,10 +455,13 @@ export default function Navbar() {
               shrink-0
               items-center
               gap-3
+
               lg:hidden
             "
           >
-            {/* THEME BUTTON */}
+            {/* =============================================
+                MOBILE THEME BUTTON
+            ============================================= */}
 
             {mounted && (
               <button
@@ -459,24 +479,25 @@ export default function Navbar() {
                   border-[#D8E6CC]
                   bg-[#F4F9F0]
                   text-[#1B4D03]
+
                   transition-all
                   duration-200
+
                   hover:scale-105
                   hover:border-[#B88600]
+
                   dark:border-[#36574F]
                   dark:bg-[#182C28]
                   dark:text-[#D4A300]
                 "
               >
-                {darkMode ? (
-                  <Moon size={18} />
-                ) : (
-                  <Sun size={18} />
-                )}
+                {darkMode ? <Moon size={18} /> : <Sun size={18} />}
               </button>
             )}
 
-            {/* HAMBURGER */}
+            {/* =============================================
+                HAMBURGER
+            ============================================= */}
 
             <button
               type="button"
@@ -496,10 +517,13 @@ export default function Navbar() {
                 rounded-xl
                 bg-[#F4F9F0]
                 text-[#1B4D03]
+
                 transition-all
                 duration-200
+
                 hover:scale-105
                 hover:bg-[#EAF3E4]
+
                 dark:bg-[#12382F]
                 dark:text-[#D4A300]
               "
@@ -519,12 +543,16 @@ export default function Navbar() {
             border-t
             border-gray-100
             bg-white
+
             transition-all
             duration-300
             ease-in-out
+
             dark:border-gray-700
             dark:bg-[#111827]
+
             lg:hidden
+
             ${
               mobileOpen
                 ? "max-h-[calc(100vh-108px)] opacity-100"
@@ -538,6 +566,7 @@ export default function Navbar() {
               overflow-y-auto
               px-5
               py-5
+
               sm:px-8
             "
           >
@@ -550,8 +579,11 @@ export default function Navbar() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
+                    aria-label={item.label}
                     className={`
                       relative
+                      flex
+                      items-center
                       border-b
                       border-gray-100
                       py-4
@@ -559,6 +591,7 @@ export default function Navbar() {
                       transition-all
                       duration-300
                       dark:border-gray-700
+
                       ${
                         active
                           ? `
@@ -580,6 +613,8 @@ export default function Navbar() {
                       }
                     `}
                   >
+                    {/* ACTIVE LEFT LINE */}
+
                     {active && (
                       <span
                         className="
@@ -597,6 +632,8 @@ export default function Navbar() {
                         "
                       />
                     )}
+
+                    {/* ACTIVE DOT */}
 
                     {active && (
                       <span
@@ -638,6 +675,7 @@ export default function Navbar() {
             z-40
             bg-black/20
             backdrop-blur-[1px]
+
             lg:hidden
           "
         />

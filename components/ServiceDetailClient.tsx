@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PrivacyPolicy from "@/components/Policy";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowUpRight,
@@ -160,6 +161,26 @@ const serviceSlidesMap: Record<string, SlideItem[]> = {
   ],
 
   certificate: [
+    {
+      src: "/certificate/certificate1.webp",
+      title: "MSME Registration Certificate",
+      subtitle:
+        "Official Government of India Udyam Registration for Restore Health Services.",
+    },
+    {
+      src: "/certificate/certificate3.webp",
+      title: "ISO 9001:2015 Certification",
+      subtitle:
+        "Quality Management System certification for healthcare and online doctor consultation services.",
+    },
+    {
+      src: "/certificate/certificate2.webp",
+      title: "Startup India Recognition",
+      subtitle:
+        "Official recognition certificate under the Government of India Startup India initiative.",
+    },
+  ],
+  login: [
     {
       src: "/certificate/certificate1.webp",
       title: "MSME Registration Certificate",
@@ -384,25 +405,20 @@ const certificates: CertificateItem[] = [
   },
 ];
 
-export default function ServiceDetailClient({
-  service,
-}: {
-  service: string;
-}) {
+export default function ServiceDetailClient({ service }: { service: string }) {
   const serviceKey = (
-    Object.keys(servicesData).includes(service)
-      ? service
-      : "online-medicine"
+    Object.keys(servicesData).includes(service) ? service : "online-medicine"
   ) as ServiceKey;
 
   const details = servicesData[serviceKey];
 
   const slides =
-    serviceSlidesMap[serviceKey] ||
-    serviceSlidesMap["online-medicine"];
+    serviceSlidesMap[serviceKey] || serviceSlidesMap["online-medicine"];
 
   const isContactPage = serviceKey === "contact-us";
   const isCertificatePage = serviceKey === "certificate";
+
+  const showPrivacyPolicy = !isContactPage && !isCertificatePage;
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -454,9 +470,7 @@ export default function ServiceDetailClient({
     setActiveSlide(index);
   };
 
-  const handleContactSubmit = (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleContactSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -480,8 +494,7 @@ ${message}
     `.trim();
 
     const whatsappUrl =
-      `https://wa.me/919027111805?text=` +
-      encodeURIComponent(whatsappMessage);
+      `https://wa.me/919027111805?text=` + encodeURIComponent(whatsappMessage);
 
     window.open(whatsappUrl, "_blank");
   };
@@ -556,18 +569,12 @@ ${message}
                   className="flex flex-wrap items-center gap-3"
                 >
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#246b1c]/25 bg-white/70 px-4 py-2 text-xs font-extrabold uppercase tracking-wider text-[#246b1c] shadow-sm backdrop-blur-md dark:border-[#c89416]/30 dark:bg-[#102d21]/70 dark:text-[#c89416]">
-                    <Sparkles
-                      size={14}
-                      className="text-[#c89416]"
-                    />
+                    <Sparkles size={14} className="text-[#c89416]" />
                     {details.badge}
                   </span>
 
                   <span className="inline-flex items-center gap-1 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                    <Star
-                      size={13}
-                      className="fill-[#c89416] text-[#c89416]"
-                    />
+                    <Star size={13} className="fill-[#c89416] text-[#c89416]" />
                     4.9 / 5 Rated Service
                   </span>
                 </motion.div>
@@ -648,15 +655,13 @@ ${message}
                         className="group flex items-center gap-3 text-sm font-semibold text-slate-800 dark:text-slate-200"
                       >
                         <span
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-sm ${item.color === "green"
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-sm ${
+                            item.color === "green"
                               ? "bg-[#246b1c]/10 text-[#246b1c]"
                               : "bg-[#c89416]/10 text-[#9a6d00]"
-                            }`}
+                          }`}
                         >
-                          <Icon
-                            size={15}
-                            strokeWidth={3}
-                          />
+                          <Icon size={15} strokeWidth={3} />
                         </span>
 
                         <span>{item.text}</span>
@@ -696,10 +701,7 @@ ${message}
                       href="tel:+919027111805"
                       className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#246b1c]/20 bg-white/60 px-6 py-4 font-bold text-[#173f15] shadow-sm backdrop-blur-md dark:border-white/20 dark:bg-white/10 dark:text-white"
                     >
-                      <Phone
-                        size={18}
-                        className="text-[#c89416]"
-                      />
+                      <Phone size={18} className="text-[#c89416]" />
                       +91 90271 11805
                     </a>
                   </motion.div>
@@ -731,10 +733,7 @@ ${message}
                   <div className="absolute -inset-5 rounded-[34px] bg-gradient-to-tr from-[#246b1c]/20 via-[#c89416]/20 to-transparent blur-2xl" />
 
                   <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-[#246b1c]/15 bg-gradient-to-br from-[#eef8eb] via-[#fffdf4] to-[#f7efd2] shadow-[0_25px_60px_rgba(23,63,21,0.20)] dark:border-[#c89416]/20">
-                    <AnimatePresence
-                      initial={false}
-                      mode="sync"
-                    >
+                    <AnimatePresence initial={false} mode="sync">
                       <motion.div
                         key={activeSlide}
                         initial={{
@@ -809,39 +808,37 @@ ${message}
                         key={slide.src}
                         type="button"
                         onClick={() => selectSlide(index)}
-                        className={`group overflow-hidden rounded-2xl border text-left transition-all duration-300 ${active
+                        className={`group overflow-hidden rounded-2xl border text-left transition-all duration-300 ${
+                          active
                             ? "border-[#c89416] bg-white shadow-lg ring-2 ring-[#c89416]/40 dark:bg-[#102d21]"
                             : "border-slate-200 bg-white/70 hover:-translate-y-1 hover:border-[#246b1c]/40 dark:border-slate-800 dark:bg-[#0c1f18]/70"
-                          }`}
+                        }`}
                       >
                         <div className="relative aspect-[16/10] overflow-hidden">
                           <Image
                             src={slide.src}
                             alt={slide.title}
                             fill
-                            className={`object-cover transition-transform duration-700 ${active
-                                ? "scale-105"
-                                : "group-hover:scale-105"
-                              }`}
+                            className={`object-cover transition-transform duration-700 ${
+                              active ? "scale-105" : "group-hover:scale-105"
+                            }`}
                             sizes="200px"
                           />
 
                           {active && (
                             <span className="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded-full bg-[#c89416] text-[#173f15]">
-                              <Check
-                                size={11}
-                                strokeWidth={3}
-                              />
+                              <Check size={11} strokeWidth={3} />
                             </span>
                           )}
                         </div>
 
                         <div className="p-2.5 sm:p-3">
                           <p
-                            className={`truncate text-[11px] font-bold sm:text-xs ${active
+                            className={`truncate text-[11px] font-bold sm:text-xs ${
+                              active
                                 ? "text-[#173f15] dark:text-[#c89416]"
                                 : "text-slate-700 dark:text-slate-300"
-                              }`}
+                            }`}
                           >
                             {slide.title}
                           </p>
@@ -859,6 +856,10 @@ ${message}
           </div>
         </section>
       </div>
+
+      {/* ================= PRIVACY POLICY ================= */}
+
+      {showPrivacyPolicy && <PrivacyPolicy />}
 
       {/* ================= CONTACT FORM ================= */}
 
@@ -1127,9 +1128,7 @@ ${message}
                       <div className="mt-auto flex justify-center pt-7">
                         <button
                           type="button"
-                          onClick={() =>
-                            setSelectedCertificate(certificate)
-                          }
+                          onClick={() => setSelectedCertificate(certificate)}
                           className="group/button inline-flex min-w-[190px] items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#173f15] via-[#246b1c] to-[#173f15] px-6 py-3.5 text-sm font-extrabold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_30px_rgba(36,107,28,0.35)]"
                         >
                           <Eye
@@ -1223,10 +1222,7 @@ ${message}
 
               <div className="flex shrink-0 items-center justify-center border-t border-slate-200 bg-white px-5 py-3 dark:border-[#1c3829] dark:bg-[#0c1f18]">
                 <span className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
-                  <BadgeCheck
-                    size={15}
-                    className="text-[#246b1c]"
-                  />
+                  <BadgeCheck size={15} className="text-[#246b1c]" />
                   Verified company credential
                 </span>
               </div>
@@ -1320,10 +1316,7 @@ ${message}
                   }}
                   className="relative z-10 mb-7 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#173f15] via-[#246b1c] to-[#c89416] text-white shadow-[0_10px_25px_rgba(36,107,28,0.25)]"
                 >
-                  <Icon
-                    size={28}
-                    strokeWidth={2.2}
-                  />
+                  <Icon size={28} strokeWidth={2.2} />
                 </motion.div>
 
                 <div className="relative z-10">
@@ -1380,8 +1373,9 @@ ${message}
                 ? "Need Guidance on Your Health Plan?"
                 : isCertificatePage
                   ? "Your Trust Is Our Strongest Certificate"
-                  : `Ready to Activate Your ${details.title.split(" ")[0]
-                  } Service?`}
+                  : `Ready to Activate Your ${
+                      details.title.split(" ")[0]
+                    } Service?`}
             </h2>
 
             <p className="mt-4 text-base text-[#e6efd1] sm:text-lg">
