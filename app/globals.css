@@ -59,3 +59,13 @@ html:not(.dark) .restore-theme > section:nth-of-type(3n + 2) [class*="uppercase"
   .service-page__content,
   .service-page__image img { animation: none; }
 }
+
+/* WorkModel rotating glow border animation */
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.rotating-glow-layer {
+  animation: rotateGlow 6s linear infinite;
+}

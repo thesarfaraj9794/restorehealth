@@ -212,7 +212,7 @@ const servicesData = {
     title: "Comprehensive Blood Diagnostics",
     description:
       "Get accurate health insights with our precision blood tests. Fast, painless, and highly reliable diagnostics delivered straight to you.",
-    image: "/blod-test.jpeg",
+    image: "/blod-test.webp",
     features: [
       {
         icon: Home,
@@ -262,7 +262,7 @@ const servicesData = {
     title: "Personal Accident Protection",
     description:
       "Unpredictable life events require rock-solid backup. Secure your financial peace of mind with our robust accident coverage.",
-    image: "/accident.jpeg",
+    image: "/accident.webp",
     features: [
       {
         icon: ShieldCheck,
@@ -287,7 +287,7 @@ const servicesData = {
     title: "Hospicash Support System",
     description:
       "Focus purely on recovery. We provide a fixed daily allowance to cover incidental expenses during your hospital stay.",
-    image: "/hospicash.jpeg",
+    image: "/hospicash.webp",
     features: [
       {
         icon: Wallet,
@@ -648,11 +648,10 @@ ${message}
                         className="group flex items-center gap-3 text-sm font-semibold text-slate-800 dark:text-slate-200"
                       >
                         <span
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-sm ${
-                            item.color === "green"
+                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-sm ${item.color === "green"
                               ? "bg-[#246b1c]/10 text-[#246b1c]"
                               : "bg-[#c89416]/10 text-[#9a6d00]"
-                          }`}
+                            }`}
                         >
                           <Icon
                             size={15}
@@ -810,22 +809,20 @@ ${message}
                         key={slide.src}
                         type="button"
                         onClick={() => selectSlide(index)}
-                        className={`group overflow-hidden rounded-2xl border text-left transition-all duration-300 ${
-                          active
+                        className={`group overflow-hidden rounded-2xl border text-left transition-all duration-300 ${active
                             ? "border-[#c89416] bg-white shadow-lg ring-2 ring-[#c89416]/40 dark:bg-[#102d21]"
                             : "border-slate-200 bg-white/70 hover:-translate-y-1 hover:border-[#246b1c]/40 dark:border-slate-800 dark:bg-[#0c1f18]/70"
-                        }`}
+                          }`}
                       >
                         <div className="relative aspect-[16/10] overflow-hidden">
                           <Image
                             src={slide.src}
                             alt={slide.title}
                             fill
-                            className={`object-cover transition-transform duration-700 ${
-                              active
+                            className={`object-cover transition-transform duration-700 ${active
                                 ? "scale-105"
                                 : "group-hover:scale-105"
-                            }`}
+                              }`}
                             sizes="200px"
                           />
 
@@ -841,11 +838,10 @@ ${message}
 
                         <div className="p-2.5 sm:p-3">
                           <p
-                            className={`truncate text-[11px] font-bold sm:text-xs ${
-                              active
+                            className={`truncate text-[11px] font-bold sm:text-xs ${active
                                 ? "text-[#173f15] dark:text-[#c89416]"
                                 : "text-slate-700 dark:text-slate-300"
-                            }`}
+                              }`}
                           >
                             {slide.title}
                           </p>
@@ -1264,8 +1260,8 @@ ${message}
             {isContactPage
               ? "Why Choose Restore Health Support?"
               : isCertificatePage
-              ? "Why Trust Our Credentials?"
-              : "Why Choose This Service?"}
+                ? "Why Trust Our Credentials?"
+                : "Why Choose This Service?"}
           </motion.h2>
 
           <motion.p
@@ -1383,9 +1379,8 @@ ${message}
               {isContactPage
                 ? "Need Guidance on Your Health Plan?"
                 : isCertificatePage
-                ? "Your Trust Is Our Strongest Certificate"
-                : `Ready to Activate Your ${
-                    details.title.split(" ")[0]
+                  ? "Your Trust Is Our Strongest Certificate"
+                  : `Ready to Activate Your ${details.title.split(" ")[0]
                   } Service?`}
             </h2>
 
@@ -1393,8 +1388,8 @@ ${message}
               {isContactPage
                 ? "Reach out to our specialist advisors and let us customize the ideal healthcare plan for you."
                 : isCertificatePage
-                ? "We believe in maintaining transparency through accessible company credentials and verified official documentation."
-                : "Join thousands of satisfied patients across the country who trust Restore Health Services every day."}
+                  ? "We believe in maintaining transparency through accessible company credentials and verified official documentation."
+                  : "Join thousands of satisfied patients across the country who trust Restore Health Services every day."}
             </p>
 
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

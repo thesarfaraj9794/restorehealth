@@ -30,9 +30,10 @@ export default function WellnessHighlight() {
         ====================================================== */}
         <div className="relative mx-auto mt-12 h-70 w-full max-w-4xl overflow-hidden rounded-4xl shadow-xl dark:shadow-emerald-900/10 sm:h-100 md:h-125">
           <Image
-            src="/yoga-girl.webp" // Replace with your actual image path
+            src="/yoga-girl.webp"
             alt="Person doing yoga outdoors"
             fill
+            sizes="(max-width: 896px) 100vw, 896px"
             className="object-cover object-center transition-transform duration-700 hover:scale-105"
           />
         </div>

@@ -10,8 +10,6 @@ import {
   MessageCircle,
   ArrowRight,
   Search,
-  Star,
-  CheckCircle2,
 } from "lucide-react";
 
 export default function BenefitsAndCare() {
@@ -96,9 +94,10 @@ export default function BenefitsAndCare() {
         {/* Hero Image (Blood Pressure) */}
         <div className="mx-auto mt-12 relative h-75 w-full max-w-3xl overflow-hidden rounded-3xl shadow-lg sm:h-100">
           <Image
-            src="/home-benefits.webp" // Replace with actual image path
+            src="/home-benefits.webp"
             alt="Patient getting blood pressure checked"
             fill
+            sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover"
           />
         </div>
@@ -199,71 +198,12 @@ export default function BenefitsAndCare() {
           {/* Right Content / Image */}
           <div className="relative h-75 w-full overflow-hidden rounded-4xl shadow-xl sm:h-100">
             <Image
-              src="/home-find-doctor.webp" // Replace with actual image path
+              src="/home-find-doctor.webp"
               alt="Doctor ready to help"
               fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-          </div>
-        </div>
-
-        {/* =====================================================
-            TOP RATED DOCTORS
-        ====================================================== */}
-        <div className="mt-20">
-          {/* <div className="mb-8 flex items-center justify-between">
-            <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
-              Top Rated Doctors
-            </h3>
-            <button className="flex items-center gap-1 text-[13px] font-bold text-[#139a67] transition-colors hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300">
-              View All Doctors <ArrowRight size={14} />
-            </button>
-          </div> */}
-
-          {/* Doctor Card Profile */}
-          <div className="flex">
-            <div className="flex w-60 flex-col items-center rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900">
-              {/* Avatar */}
-              {/* <div className="relative mb-4 h-16 w-16 overflow-hidden rounded-full border-2 border-emerald-100 bg-slate-100 dark:border-slate-700 dark:bg-slate-800">
-                <Image
-                  src="/doctor.png" // Replace with actual image path
-                  alt="Dr. Sarfraj"
-                  fill
-                  className="object-cover"
-                />
-              </div> */}
-
-              {/* Info */}
-              {/* <h4 className="text-[15px] font-bold text-slate-900 dark:text-white">
-                Dr. Sarfraj
-              </h4>
-              <p className="mt-1 text-[13px] font-medium text-[#139a67] dark:text-emerald-400">
-                Neurology
-              </p>
-              <p className="mt-1.5 text-[12px] text-slate-500 dark:text-slate-400">
-                14 Years Experience
-              </p> */}
-
-              {/* Stats */}
-              {/* <div className="my-4 flex items-center justify-center gap-3 text-[11px] font-bold text-slate-700 dark:text-slate-300">
-                <span className="flex items-center gap-1">
-                  <Star
-                    size={12}
-                    className="fill-emerald-500 text-emerald-500"
-                  />
-                  5.0
-                </span>
-                <div className="h-3 w-px bg-slate-200 dark:bg-slate-700" />
-                <span className="flex items-center gap-1 text-[#139a67] dark:text-emerald-400">
-                  <CheckCircle2 size={12} /> Available Today
-                </span>
-              </div> */}
-
-              {/* CTA */}
-              {/* <button className="mt-1 flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white py-2.5 text-[12px] font-bold text-slate-700 transition-all hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700">
-                View Profile <ArrowRight size={12} />
-              </button> */}
-            </div>
           </div>
         </div>
       </div>

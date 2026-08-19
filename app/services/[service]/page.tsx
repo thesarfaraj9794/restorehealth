@@ -4,7 +4,7 @@ import ServiceDetailClient from "@/components/ServiceDetailClient";
 // =====================================================
 // VALID SERVICE KEYS (DEFINED IN SERVER COMPONENT)
 // =====================================================
-export const validServiceKeys = [
+const validServiceKeys = [
   "online-medicine",
   "blood-test",
   "online-doctor-consultation",

@@ -73,21 +73,6 @@ export default function RestoreHero() {
           ROTATING OUTER BORDER ANIMATION
           LOGO GREEN + LOGO GOLD
       ====================================================== */}
-      <style jsx global>{`
-        @keyframes rotateGlow {
-          from {
-            transform: rotate(0deg);
-          }
-
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .rotating-glow-layer {
-          animation: rotateGlow 6s linear infinite;
-        }
-      `}</style>
 
       <div className="mx-auto max-w-7xl">
         {/* =====================================================

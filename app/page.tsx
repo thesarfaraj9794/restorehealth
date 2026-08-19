@@ -20,7 +20,6 @@ const page = () => {
       <Hero />
       <PlatformFeatures />
       <HealthcareComparison />
-      <PlatformFeatures />
       <AdvantageComparison />
       <FAQSection />
       <WellnessHighlight />

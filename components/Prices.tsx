@@ -34,9 +34,10 @@ export default function CoverageAndPricing() {
         {/* Hero Image - Grandmother */}
         <div className="relative mx-auto mt-12 h-55 w-full max-w-3xl overflow-hidden rounded-4xl shadow-lg sm:h-75 md:h-87.5">
           <Image
-            src="/senior-care.webp" // Replace with your actual image path
+            src="/senior-care.webp"
             alt="Elderly woman reading newspaper"
             fill
+            sizes="(max-width: 768px) 100vw, 768px"
             className="object-cover object-center"
           />
         </div>

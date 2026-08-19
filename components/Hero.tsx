@@ -15,8 +15,6 @@ import {
   Sparkles,
   ChevronLeft,
   ChevronRight,
-  Star,
-  CheckCircle2,
 } from "lucide-react";
 
 /**

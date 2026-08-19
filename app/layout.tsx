@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import {
   Geist,
   Geist_Mono,
@@ -22,13 +23,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RestoreHealth - Your Partner in Better Health",
-  description: "Created by Darkz143",
+  title: "Restore Health Services - Your Partner in Better Health",
+  description:
+    "Restore Health Services provides doorstep pharmacy delivery, blood diagnostics, online doctor consultations, personal accident coverage, and hospicash support across India.",
 };
 
 export default function RootLayout({
   children,
-}: LayoutProps<"/">) {
+}: {
+  children: ReactNode;
+}) {
   return (
     <html
       lang="en"
