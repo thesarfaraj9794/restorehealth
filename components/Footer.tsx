@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, ChevronRight } from "lucide-react";
-import { FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   const quickLinks = [
