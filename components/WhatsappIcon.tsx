@@ -8,7 +8,7 @@ export default function FloatingWhatsAppButton() {
     // 'bottom-6' and 'right-6' for mobile, slight adjustment for desktop
     <div className="fixed bottom-6 right-6 z-50 lg:bottom-10 lg:right-10">
       <Link
-        href="https://wa.me/9027111805"
+        href="https://wa.me/9289250468"
         target="_blank"
         rel="noopener noreferrer"
         className="
