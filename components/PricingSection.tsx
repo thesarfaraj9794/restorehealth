@@ -948,7 +948,13 @@ export default function PlansPage() {
                             </strong>
                           </p>
 
-                          {/* PERSONAL ACCIDENT - SAME BLOCK */}
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* PERSONAL ACCIDENT - SAME BLOCK */}
                           <div className="mt-4 overflow-hidden rounded-2xl border border-[#cbdcaf] bg-white dark:border-emerald-900 dark:bg-[#102218]">
                             {/* HEADER */}
                             <div className="flex items-center gap-3 bg-[#064627] px-4 py-4 text-white sm:px-5">
@@ -983,10 +989,6 @@ export default function PlansPage() {
                               </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
                   {/* =============================================
                       BOTTOM
