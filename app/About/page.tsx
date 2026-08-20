@@ -278,7 +278,7 @@ export default function AboutUsPage() {
             </p>
 
             <a
-              href="/Contact-us"
+              href="/services/contact-us"
               className="
                 group
                 mt-8
@@ -647,7 +647,7 @@ export default function AboutUsPage() {
               </div>
 
               <a
-                href="/Contact-us"
+                href="/services/contact-us"
                 className="
                   group
                   inline-flex

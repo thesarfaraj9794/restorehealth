@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Menu, X, Moon, Sun, CircleUserRound } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 
 import { useTheme } from "../app/providers/ThemeProvider";
 
@@ -45,10 +45,6 @@ const navItems = [
   {
     label: "Contact Us",
     href: "/services/contact-us",
-  },
-  {
-    label: "Login",
-    href: "/services/login",
   },
 ];
 
@@ -268,14 +264,11 @@ export default function Navbar() {
             >
               {navItems.map((item) => {
                 const active = isActivePage(item.href);
-                const isLogin = item.label === "Login";
 
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
-                    aria-label={isLogin ? "Login / Profile" : item.label}
-                    title={isLogin ? "Login" : undefined}
                     className={`
                       group
                       relative
@@ -285,22 +278,9 @@ export default function Navbar() {
                       transition-all
                       duration-300
 
-                      ${
-                        isLogin
-                          ? `
-                            flex
-                            h-10
-                            w-10
-                            items-center
-                            justify-center
-                            rounded-full
-                          `
-                          : `
-                            lg:text-[13px]
-                            xl:text-[14px]
-                            2xl:text-[16px]
-                          `
-                      }
+                      lg:text-[13px]
+                      xl:text-[14px]
+                      2xl:text-[16px]
 
                       ${
                         active
@@ -317,98 +297,41 @@ export default function Navbar() {
                             dark:hover:text-[#D4A300]
                           `
                       }
-
-                      ${
-                        isLogin
-                          ? `
-                            border
-                            border-[#D8E6CC]
-                            bg-[#F4F9F0]
-                            hover:scale-105
-                            hover:border-[#B88600]
-                            hover:bg-[#EAF3E4]
-                            hover:text-[#B88600]
-
-                            dark:border-[#36574F]
-                            dark:bg-[#182C28]
-                            dark:text-[#D4A300]
-                          `
-                          : ""
-                      }
                     `}
                   >
-                    {/* =====================================
-                        LOGIN = PROFILE ICON
-                    ===================================== */}
+                    {item.label}
 
-                    {isLogin ? (
-                      <CircleUserRound
-                        size={25}
-                        strokeWidth={2.1}
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      item.label
-                    )}
+                    {/* ACTIVE / HOVER LINE */}
 
-                    {/* =====================================
-                        NORMAL LINK ACTIVE / HOVER LINE
-                    ===================================== */}
+                    <span
+                      className={`
+                        absolute
+                        left-1/2
+                        -bottom-[18px]
+                        h-[3px]
+                        -translate-x-1/2
+                        rounded-full
 
-                    {!isLogin && (
-                      <span
-                        className={`
-                          absolute
-                          left-1/2
-                          -bottom-[18px]
-                          h-[3px]
-                          -translate-x-1/2
-                          rounded-full
+                        bg-gradient-to-r
+                        from-[#1B4D03]
+                        via-[#246B1C]
+                        to-[#B88600]
 
-                          bg-gradient-to-r
-                          from-[#1B4D03]
-                          via-[#246B1C]
-                          to-[#B88600]
+                        transition-all
+                        duration-300
+                        ease-out
 
-                          transition-all
-                          duration-300
-                          ease-out
+                        ${
+                          active
+                            ? "w-full opacity-100"
+                            : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                        }
+                      `}
+                    />
 
-                          ${
-                            active
-                              ? "w-full opacity-100"
-                              : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
-                          }
-                        `}
-                      />
-                    )}
+                    {/* ACTIVE DOT */}
 
-                    {/* =====================================
-                        PROFILE ACTIVE RING
-                    ===================================== */}
-
-                    {isLogin && active && (
-                      <span
-                        className="
-                          pointer-events-none
-                          absolute
-                          inset-0
-                          rounded-full
-                          ring-2
-                          ring-[#B88600]
-                          ring-offset-2
-                          ring-offset-white
-
-                          dark:ring-offset-[#111827]
-                        "
-                      />
-                    )}
-
-                    {/* =====================================
-                        NORMAL LINK ACTIVE DOT
-                    ===================================== */}
-
-                    {!isLogin && active && (
+                    {active && (
                       <span
                         className="
                           absolute
@@ -539,60 +462,6 @@ export default function Navbar() {
             "
           >
             {/* =============================================
-                MOBILE PROFILE / LOGIN BUTTON
-            ============================================= */}
-
-            <Link
-              href="/services/login"
-              aria-label="Login / Profile"
-              title="Login"
-              onClick={closeMobileMenu}
-              className={`
-                relative
-                flex
-                h-10
-                w-10
-                items-center
-                justify-center
-                rounded-full
-                border
-
-                transition-all
-                duration-200
-
-                hover:scale-105
-
-                ${
-                  isActivePage("/services/login")
-                    ? `
-                      border-[#B88600]
-                      bg-[#1B4D03]
-                      text-white
-                      shadow-[0_0_12px_rgba(184,134,0,0.25)]
-
-                      dark:bg-[#D4A300]
-                      dark:text-[#111827]
-                    `
-                    : `
-                      border-[#D8E6CC]
-                      bg-[#F4F9F0]
-                      text-[#1B4D03]
-
-                      hover:border-[#B88600]
-                      hover:bg-[#EAF3E4]
-                      hover:text-[#B88600]
-
-                      dark:border-[#36574F]
-                      dark:bg-[#182C28]
-                      dark:text-[#D4A300]
-                    `
-                }
-              `}
-            >
-              <CircleUserRound size={24} strokeWidth={2.1} />
-            </Link>
-
-            {/* =============================================
                 MOBILE THEME BUTTON
             ============================================= */}
 
@@ -704,15 +573,12 @@ export default function Navbar() {
             <div className="flex flex-col">
               {navItems.map((item) => {
                 const active = isActivePage(item.href);
-                const isLogin = item.label === "Login";
 
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    aria-label={isLogin ? "Login / Profile" : item.label}
-                    title={isLogin ? "Login" : undefined}
                     className={`
                       relative
                       flex
@@ -749,13 +615,9 @@ export default function Navbar() {
                             dark:hover:text-[#D4A300]
                           `
                       }
-
-                      ${isLogin && !active ? "pl-3" : ""}
                     `}
                   >
-                    {/* =====================================
-                        ACTIVE LEFT LINE
-                    ===================================== */}
+                    {/* ACTIVE LEFT LINE */}
 
                     {active && (
                       <span
@@ -776,9 +638,7 @@ export default function Navbar() {
                       />
                     )}
 
-                    {/* =====================================
-                        ACTIVE DOT
-                    ===================================== */}
+                    {/* ACTIVE DOT */}
 
                     {active && (
                       <span
@@ -797,54 +657,7 @@ export default function Navbar() {
                       />
                     )}
 
-                    {/* =====================================
-                        LOGIN TEXT KI JAGAH PROFILE ICON
-                    ===================================== */}
-
-                    {isLogin ? (
-                      <span
-                        className={`
-                          flex
-                          h-10
-                          w-10
-                          items-center
-                          justify-center
-                          rounded-full
-                          border
-
-                          transition-all
-                          duration-200
-
-                          ${
-                            active
-                              ? `
-                                border-[#B88600]
-                                bg-[#1B4D03]
-                                text-white
-
-                                dark:bg-[#D4A300]
-                                dark:text-[#111827]
-                              `
-                              : `
-                                border-[#D8E6CC]
-                                bg-[#EDF5E8]
-                                text-[#1B4D03]
-
-                                hover:border-[#B88600]
-                                hover:text-[#B88600]
-
-                                dark:border-[#36574F]
-                                dark:bg-[#18382C]
-                                dark:text-[#D4A300]
-                              `
-                          }
-                        `}
-                      >
-                        <CircleUserRound size={24} strokeWidth={2.1} />
-                      </span>
-                    ) : (
-                      item.label
-                    )}
+                    {item.label}
                   </Link>
                 );
               })}

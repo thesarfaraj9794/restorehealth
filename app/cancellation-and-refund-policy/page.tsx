@@ -50,7 +50,7 @@ export default function CancellationRefundPolicyPage() {
             className="border-b border-slate-200 py-7 dark:border-slate-700"
           >
             <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              1. No Refund After Policy Issuance
+              1. No refund after policy issuance
             </h2>
 
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
@@ -69,35 +69,16 @@ export default function CancellationRefundPolicyPage() {
             className="border-b border-slate-200 py-7 dark:border-slate-700"
           >
             <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              2. No Cancellation After Policy Issuance
+              2. No cancellation after policy issuance
             </h2>
 
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
-              Once the policy has been successfully issued, the policy cannot
-              be cancelled.
+              Once the policy has been successfully issued, the policy cannot be
+              cancelled.
             </p>
           </motion.section>
 
           {/* SECTION 3 */}
-
-          <motion.section
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45, delay: 0.08 }}
-            className="border-b border-slate-200 py-7 dark:border-slate-700"
-          >
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              3. Transfer of Amount to Service Partner
-            </h2>
-
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
-              After issuance of the policy, the applicable amount is
-              transferred to the respective service partner for processing,
-              activation and fulfilment of the policy or healthcare-related
-              service.
-            </p>
-          </motion.section>
 
           {/* SECTION 4 */}
 
@@ -109,32 +90,13 @@ export default function CancellationRefundPolicyPage() {
             className="border-b border-slate-200 py-7 dark:border-slate-700"
           >
             <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              4. Reason for Non-Refund
+              3. Reason for non-refund and non-cancellation
             </h2>
 
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
               Since the applicable amount is transferred to the respective
               service partner after the policy is issued, cancellation and
               refund cannot be processed after issuance.
-            </p>
-          </motion.section>
-
-          {/* SECTION 5 */}
-
-          <motion.section
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.45, delay: 0.16 }}
-            className="border-b border-slate-200 py-7 dark:border-slate-700"
-          >
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              5. Final Cancellation and Refund Terms
-            </h2>
-
-            <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
-              Therefore, once the policy has been issued, there will be no
-              cancellation and no refund of the premium amount.
             </p>
           </motion.section>
 
@@ -148,7 +110,7 @@ export default function CancellationRefundPolicyPage() {
             className="py-7"
           >
             <h2 className="text-lg font-bold text-slate-900 dark:text-white sm:text-xl">
-              6. Contact Us
+              4. Contact us
             </h2>
 
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base sm:leading-8">
@@ -176,8 +138,8 @@ export default function CancellationRefundPolicyPage() {
           className="mt-4 border-t border-slate-200 pt-7 dark:border-slate-700"
         >
           <p className="text-xs leading-6 text-slate-500 dark:text-slate-400 sm:text-sm">
-            By purchasing or activating a policy, the customer acknowledges
-            and agrees to the above cancellation and refund terms.
+            By purchasing or activating a policy, the customer acknowledges and
+            agrees to the above cancellation and refund terms.
           </p>
         </motion.div>
       </section>

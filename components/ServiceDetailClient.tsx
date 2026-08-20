@@ -427,6 +427,8 @@ export default function ServiceDetailClient({ service }: { service: string }) {
   const [selectedCertificate, setSelectedCertificate] =
     useState<CertificateItem | null>(null);
 
+  const [isHeroImageOpen, setIsHeroImageOpen] = useState(false);
+
   const nextSlide = useCallback(() => {
     setDirection("next");
 
@@ -453,6 +455,7 @@ export default function ServiceDetailClient({ service }: { service: string }) {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setSelectedCertificate(null);
+        setIsHeroImageOpen(false);
       }
     };
 
@@ -732,7 +735,12 @@ ${message}
                 <div className="relative">
                   <div className="absolute -inset-5 rounded-[34px] bg-gradient-to-tr from-[#246b1c]/20 via-[#c89416]/20 to-transparent blur-2xl" />
 
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-[#246b1c]/15 bg-gradient-to-br from-[#eef8eb] via-[#fffdf4] to-[#f7efd2] shadow-[0_25px_60px_rgba(23,63,21,0.20)] dark:border-[#c89416]/20">
+                  <button
+                    type="button"
+                    onClick={() => setIsHeroImageOpen(true)}
+                    aria-label={`Open ${slides[activeSlide].title} image`}
+                    className="group relative aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-[28px] border border-[#246b1c]/15 bg-gradient-to-br from-[#eef8eb] via-[#fffdf4] to-[#f7efd2] text-left shadow-[0_25px_60px_rgba(23,63,21,0.20)] outline-none transition-all duration-500 hover:scale-[1.025] hover:shadow-[0_30px_75px_rgba(23,63,21,0.28)] focus-visible:ring-4 focus-visible:ring-[#c89416]/40 dark:border-[#c89416]/20"
+                  >
                     <AnimatePresence initial={false} mode="sync">
                       <motion.div
                         key={activeSlide}
@@ -758,7 +766,7 @@ ${message}
                           alt={slides[activeSlide].title}
                           fill
                           priority={activeSlide === 0}
-                          className="object-contain"
+                          className="object-contain transition-transform duration-500 group-hover:scale-[1.04]"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
 
@@ -796,7 +804,7 @@ ${message}
                         className="h-full bg-gradient-to-r from-[#246b1c] to-[#c89416]"
                       />
                     </div>
-                  </div>
+                  </button>
                 </div>
 
                 <div className="mt-5 grid grid-cols-3 gap-3 sm:gap-4">
@@ -856,6 +864,63 @@ ${message}
           </div>
         </section>
       </div>
+
+      {/* ================= HERO IMAGE PREVIEW MODAL ================= */}
+
+      <AnimatePresence>
+        {isHeroImageOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-3 backdrop-blur-md sm:p-6"
+            onClick={() => setIsHeroImageOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 30 }}
+              transition={{
+                duration: 0.35,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-6xl overflow-hidden rounded-[28px] border border-white/20 bg-white shadow-[0_30px_100px_rgba(0,0,0,0.55)] dark:bg-[#0c1f18]"
+            >
+              <button
+                type="button"
+                onClick={() => setIsHeroImageOpen(false)}
+                aria-label="Close image preview"
+                className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-white shadow-lg backdrop-blur-md transition-all duration-300 hover:rotate-90 hover:bg-[#246b1c] sm:right-5 sm:top-5"
+              >
+                <X size={22} />
+              </button>
+
+              <div className="relative h-[72vh] min-h-[360px] w-full bg-gradient-to-br from-[#eef8eb] via-[#fffdf4] to-[#f7efd2] dark:from-[#102d21] dark:via-[#0c1f18] dark:to-[#241d09]">
+                <Image
+                  src={slides[activeSlide].src}
+                  alt={slides[activeSlide].title}
+                  fill
+                  priority
+                  className="object-contain p-3 sm:p-5"
+                  sizes="100vw"
+                />
+              </div>
+
+              <div className="border-t border-slate-200 bg-white px-5 py-4 dark:border-[#1c3829] dark:bg-[#0c1f18] sm:px-7">
+                <h3 className="text-base font-extrabold text-[#173f15] dark:text-white sm:text-xl">
+                  {slides[activeSlide].title}
+                </h3>
+
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 sm:text-sm">
+                  {slides[activeSlide].subtitle}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* ================= PRIVACY POLICY ================= */}
 
