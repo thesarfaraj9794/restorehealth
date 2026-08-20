@@ -497,7 +497,7 @@ ${message}
     `.trim();
 
     const whatsappUrl =
-      `https://wa.me/919027111805?text=` + encodeURIComponent(whatsappMessage);
+      `https://wa.me/919289250468?text=` + encodeURIComponent(whatsappMessage);
 
     window.open(whatsappUrl, "_blank");
   };
@@ -692,7 +692,7 @@ ${message}
                     className="mt-8 flex flex-col gap-3 sm:flex-row"
                   >
                     <a
-                      href="https://wa.me/919027111805"
+                      href="https://wa.me/919289250468"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-[#173f15] via-[#246b1c] to-[#173f15] px-7 py-4 font-bold text-white shadow-lg"
@@ -703,11 +703,11 @@ ${message}
                     </a>
 
                     <a
-                      href="tel:+919027111805"
+                      href="tel:+919289250468"
                       className="inline-flex items-center justify-center gap-2 rounded-2xl border border-[#246b1c]/20 bg-white/60 px-6 py-4 font-bold text-[#173f15] shadow-sm backdrop-blur-md dark:border-white/20 dark:bg-white/10 dark:text-white"
                     >
                       <Phone size={18} className="text-[#c89416]" />
-                      +91 90271 11805
+                      +91 9289250468
                     </a>
                   </motion.div>
                 )}
