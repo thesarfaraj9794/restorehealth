@@ -114,6 +114,30 @@ export default function Footer() {
               >
                 <FaFacebook size={16} />
               </Link>
+          {/* Email */}
+              <Link
+  href="mailto:support@restorehealthservices.in"
+  className="
+    flex
+    h-9
+    w-9
+    items-center
+    justify-center
+    rounded-lg
+    border
+    border-[#365A24]
+    bg-transparent
+    text-[#DCE8D4]
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:border-[#D4A300]
+    hover:text-[#D4A300]
+  "
+  aria-label="Email"
+>
+  <FaEnvelope size={16} />
+</Link>
 
               {/* LinkedIn */}
 
