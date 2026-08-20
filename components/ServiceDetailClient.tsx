@@ -626,52 +626,8 @@ ${message}
                   <div className="h-1.5 w-1.5 rounded-full bg-[#173f15]/40" />
                 </div>
 
-                <div className="mt-8 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-                  {[
-                    {
-                      icon: Check,
-                      text: "Instant Verification",
-                      color: "green",
-                    },
-                    {
-                      icon: Zap,
-                      text: "Express Delivery & Response",
-                      color: "gold",
-                    },
-                    {
-                      icon: ShieldCheck,
-                      text: "100% Confidential & Safe",
-                      color: "green",
-                    },
-                    {
-                      icon: Clock,
-                      text: "24/7 Dedicated Support",
-                      color: "gold",
-                    },
-                  ].map((item) => {
-                    const Icon = item.icon;
-
-                    return (
-                      <motion.div
-                        key={item.text}
-                        whileHover={{ x: 7 }}
-                        className="group flex items-center gap-3 text-sm font-semibold text-slate-800 dark:text-slate-200"
-                      >
-                        <span
-                          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full shadow-sm ${
-                            item.color === "green"
-                              ? "bg-[#246b1c]/10 text-[#246b1c]"
-                              : "bg-[#c89416]/10 text-[#9a6d00]"
-                          }`}
-                        >
-                          <Icon size={15} strokeWidth={3} />
-                        </span>
-
-                        <span>{item.text}</span>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                
+                      
 
                 {isContactPage && (
                   <motion.div
